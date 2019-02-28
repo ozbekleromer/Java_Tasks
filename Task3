@@ -1,0 +1,8 @@
+Girilen sayıyı basamaklarına ayırıp ayrı ayrı yazdır.
+Örnek:
+Sayı girininiz : 1835
+Girdiğiniz sayı 4 basamaklı bir sayı.
+1000 ler basamağı = 1
+100 ler basamağı = 8
+10  ler basamağı =3
+1 ler basamağı = 5
