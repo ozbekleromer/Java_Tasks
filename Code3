@@ -1,0 +1,17 @@
+static void findDigits(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter a number : ");
+        int a = scanner.nextInt();
+        int i = 10;
+        int digits = 1;
+        while (a != (a%i)){
+            digits++;
+            i *= 10;
+        }
+        i /= 10;
+        System.out.println("The number you have entered is " + digits + " digits.");
+        for (; i>0; i/=10) {
+            System.out.println(i + "'s digit = " + (a/i));
+            a -= ((a/i)*i);
+        }
+    }
