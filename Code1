@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class Exercise {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Enter the lengths of arrays(Example: 5,3) :" );
+        String s = scanner.nextLine();
+        
+        int m = Integer.parseInt(s.substring(0,s.indexOf(',')));        // Gets M integer
+        int n = Integer.parseInt(s.substring(s.indexOf(',') + 1));      // Gets N integer
+        System.out.println("M = " + m + "    N = " + n);
+        
+        System.out.println("Enter the arrays in two lines and separate the elements with comas \n" +
+                "N is first array's length, M is Second array's length):");
+
+        s = scanner.nextLine();
+        int[] A = new int[n];
+        for (int i=0; i < n; i++)           // Reads next line and initialize the array
+            A[i] = Integer.parseInt(s.substring(2*i, 2*i+1));
+
+        s = scanner.nextLine();
+        int[] B = new int[m];
+        for (int i=0; i < m; i++)           // Reads next line and initialize the array
+            B[i] = Integer.parseInt(s.substring(2*i, 2*i+1));
+
+        System.out.print("A[] = { " + A[0]);
+        for (int i=1; i < n; i++)           // Prints array
+            System.out.print(", " + A[i]);
+        System.out.println(" }");
+
+        System.out.print("B[] = { " + B[0]);
+        for (int i=1; i < m; i++)           // Prints array
+            System.out.print(", " + B[i]);
+        System.out.println(" }");
+
+        for (int i=0; i < m; i++) {         // Finds repetitive numbers
+            for (int j=0; j < i; j++) {
+                if (B[i] == B[j])
+                    B[i] = -1;
+            }
+        }
+
+        for (int i=0; i < m; i++) {         // Counts the numbers
+            if (B[i] != -1) {
+                int count = 0;
+                for (int j=0; j < n; j++) {
+                    if (A[j] == B[i])
+                        count++;
+                }
+                B[i] = count;
+            }
+        }
+
+        System.out.print("new B[] = { " + B[0]);
+        for (int i=1; i < m; i++)           // Prints new array
+            System.out.print(", " + B[i]);
+        System.out.println(" }");
+    }
+}
