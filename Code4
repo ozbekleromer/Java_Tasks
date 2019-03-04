@@ -1,0 +1,25 @@
+static void lookSay(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the starting number : ");
+        int num = scanner.nextInt();
+        System.out.println("Please enter the step number : ");
+        int step = scanner.nextInt();
+        for (int i=0; i<step; i++) {
+            int newNum = 0;
+            for (int lastDigit = num % 10, count = 1, digit = 0; num != 0;) {
+                num /=10;
+                if (lastDigit == num%10)
+                    count++;
+                else {
+                    newNum += Math.pow(10, digit) * lastDigit;
+                    digit++;
+                    newNum += Math.pow(10, digit) * count;
+                    digit++;
+                    lastDigit = num % 10;
+                    count = 1;
+                }
+            }
+            System.out.println(newNum);
+            num = newNum;
+        }
+    }
