@@ -1,0 +1,16 @@
+GuessingGame
+Bilgisayar rakamları birbirinden farklı 4 basamaklı random bir sayı tutuyor.
+oyun oyuncudan dört basamaklı rakamları farklı bir sayıyı girmenizi istiyor daha sonra tahmininizde doğru olan rakamları ve yerleri yanlış olan rakamları belirtiyor kullanıcı bu sayılara paralel başka tahminlerde bulunarak doğru olan rakamların basamak yerlerini tam olarak saptamaya çalışıyor kullanıcı kendisine verilen 8 tahmin hakkından sonra o sayıyı tutturmaya çalışıyor .
+
+Örnek:(bilgisayarın random olarak belirlediği sayı 3904)
+8 hakkınız var..
+Bir sayı giriniz: 1334
+2 rakam doğru fakat 1 rakamın yeri yanlış.
+Bir sayı giriniz: 1204
+1 rakam doğru.
+Bir sayı giriniz: 3224
+2 rakam doğru.
+Bir sayı giriniz: 3294
+3 rakam doğru fakat 1 rakamın yeri yanlış.
+Bir sayı giriniz: 3904
+Tebrikler sayısı buldunuz.
