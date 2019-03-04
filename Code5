@@ -1,0 +1,43 @@
+static void guessGame() {
+        Scanner scanner = new Scanner(System.in);
+        int number = (int)(Math.random() * 10000);
+        if (number < 1000)
+            number += 1000;
+        int[] numDigits = new int[4];
+        for (int i = 0, tmp = number; i < 4; i++, tmp /= 10)
+            numDigits[i] = tmp % 10;
+        for (int chances = 8; chances > 0; chances--) {
+            System.out.println("You have " + chances + " chances to guess! \n" +
+                    "Enter a four-digit number: ");
+            int guess = scanner.nextInt();
+            if (number == guess) {
+                System.out.println("Congratulations! You find the number! ");
+                break;
+            } else{
+                int[] guessDigits = new int[4];
+                boolean[] numCorrects = {false, false, false, false};
+                boolean[] guessCorrects = {false, false, false, false};
+                int digit = 0, correct = 0;
+                for (int i = 0, tmp = guess; i < 4; i++, tmp /= 10) {
+                    guessDigits[i] = tmp % 10;
+                    if (numDigits[i] == guessDigits[i]) {
+                        correct++;
+                        numCorrects[i] = true;
+                        guessCorrects[i] = true;
+                    }
+                }
+                for (int i = 0; i < 4; i++) {
+                    for (int j = 0; j < 4; j++) {
+                        if (numDigits[i] == guessDigits[j] && !numCorrects[i] && !guessCorrects[j]) {
+                            correct++;
+                            digit++;
+                            numCorrects[i] = true;
+                            guessCorrects[j] = true;
+                        }
+                    }
+                }
+                System.out.println(correct + " digit correct, and " + digit + " digit placed wrong.");
+            }
+        }
+        System.out.println("The number is " + number);
+    }
